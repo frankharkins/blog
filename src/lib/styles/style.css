@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla&family=Source+Code+Pro:wght@400;700&display=swap');
+
+.mono {
+  font-family: 'Source Code Pro', Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+}
+
+:root {
+  font-family: 'Source Code Pro', Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 18px;
+  color-scheme: only dark;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  --color-black: #0d1117;
+  --color-white: #ecf2f8;
+  --color-grey: #89929b;
+  --color-darkgrey: #21262d;
+  --color-cursor: #58a6ff;
+  --color-blue: #0969da;
+  --color-cyan: #56D4DD;
+
+  --color-title: var(--color-white);
+  --color-bg: var(--color-black);
+  --color-body: var(--color-grey);
+  --color-tint: var(--color-darkgrey);
+  --color-link: var(--color-cyan);
+  --color-focus: var(--color-cyan);
+  --color-cursor: var(--color-cyan);
+
+}
+
+body {
+  margin: 0;
+  padding-top: 2rem;
+  min-height: 100vh;
+  color: var(--color-body);
+  background-color: var(--color-bg);
+  transition: background 0.2s ease;
+}
+
+h1, h2, h3 {
+  color: var(--color-title);
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 2rem;
+}
+
+h1 {
+}
+
+em {
+  font-style: italic;
+}
+
+h3 {
+  font-weight: normal;
+}
+
+pre {
+  border: 1px solid var(--color-tint);
+  padding: 1rem;
+  overflow: auto;
+}
+
+pre.language-output {
+  margin-top: -1rem;
+  border-top: none;
+  background: none;
+  line-height: .66rem;
+}
+
+code, table {
+  font-size: .8rem;
+  border: 1px solid var(--color-tint);
+}
+
+pre > code {
+  font-size: .7rem;
+  background-color: unset;
+  border: none;
+}
+
+table {
+  margin: 1rem 0;
+}
+
+table, th, td {
+  border: 1px solid;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+th, td {
+  padding: .3rem .5rem;
+  min-width: 4rem;
+}
+
+a {
+  color: var(--color-link);
+  transition: background 0.2s ease;
+}
+
+*:focus {
+  outline: solid var(--color-focus) 1px;
+  outline-offset: 1px;
+}
+
+a:hover, a:focus {
+  color: var(--color-bg);
+  background: var(--color-link);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  padding-left: 1.2rem;
+}
+
+ul li:before {
+  content: '- ';
+  margin-left: -1rem;
+}
+
+p, ol, ul {
+  font-size: .9rem;
+  font-family: 'Karla', sans-serif;
+  margin: 1rem 0;
+  text-align: justify;
+}
+
+p:last-of-type {
+  margin-bottom: 2rem;
+}
+
+main, header {
+  width: 75%;
+  max-width: 32rem;
+  margin: 0 auto 2rem auto;
+  padding: 0 2rem;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+}
