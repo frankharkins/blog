@@ -27,6 +27,7 @@ const config = {
     prerender: {
       handleHttpError: ({ path, _referrer, message }) => {
         if (path === '/frankharkins.github.io/') { return }
+        if (path.startsWith('/blog')) { return }
         throw new Error(message)
       }
     }
