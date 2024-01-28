@@ -139,6 +139,13 @@ p:last-of-type {
   margin-bottom: 2rem;
 }
 
+blockquote {
+  margin-right: 0;
+  margin-left: 0;
+  padding-left: 1rem;
+  border-left: 3px solid var(--color-tint);
+}
+
 main, header {
   width: 75%;
   max-width: 32rem;
