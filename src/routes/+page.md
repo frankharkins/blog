@@ -5,6 +5,14 @@
 # Frank's blog
 
 <BlogPostEntry
+    title="The accidental user researcher"
+    description="How I accidentally stumbled upon user research best practices
+    while maintaining an open-source textbook."
+    url="./accidental-user-research"
+    date="20 / February / 2026"
+/>
+
+<BlogPostEntry
     title="quPython: Exploring higher-level quantum programming"
     description="How Python's programming model can structure
     quantum programs, and why it might be useful."
