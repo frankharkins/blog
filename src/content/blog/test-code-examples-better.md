@@ -1,4 +1,8 @@
-# Testing code examples, but better
+---
+title: 'Testing code examples, but better'
+description: 'The shortcomings of how we usually test code examples, and how we can improve it.'
+pubDate: '28 Jan 2024'
+---
 
 I've spent a long time working on content (such as tutorials) for unstable
 software. Part of this involved regularly scrambling to fix code examples that

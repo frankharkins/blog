@@ -1,8 +1,8 @@
-<script>
-  import Asciinema from "$lib/components/Asciinema.svelte";
-</script>
-
-# Semi-automate the boring tasks with Vim
+---
+title: 'Semi-automate the boring tasks with Vim'
+description: "Speed up those tedious tasks that aren't quite worth writing a script for, and make them actually... fun?"
+pubDate: '22 October 2023'
+---
 
 When you hear enthusiasts talk (or type) about Vim, you'll probably come away
 believing that Vim is better because you can do things in "less keystrokes",

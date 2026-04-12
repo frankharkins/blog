@@ -1,4 +1,8 @@
-# quPython: Exploring higher-level quantum programming
+---
+title: 'quPython: Exploring higher-level quantum programming'
+description: "How Python's programming model can structure quantum programs, and why it might be useful."
+pubDate: '26 Oct 2024'
+---
 
 This blog post introduces [quPython](https://github.com/frankharkins/qupython),
 a personal project of mine that explores of what a more "Pythonic" quantum

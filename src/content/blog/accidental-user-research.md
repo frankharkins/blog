@@ -1,4 +1,8 @@
-# The accidental user researcher
+---
+title: 'The accidental user researcher'
+description: 'How I accidentally stumbled upon user research best practices while maintaining an open-source textbook.'
+pubDate: '20 Feb 2026'
+---
 
 I was first hired at IBM to work on the _Qiskit Textbook_, an online resource
 teaching quantum computing through Qiskit, one of IBM's open-source software
