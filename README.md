@@ -1,3 +1,0 @@
-# Frank's personal blog
-
-
