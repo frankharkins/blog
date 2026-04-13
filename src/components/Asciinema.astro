@@ -1,0 +1,30 @@
+---
+const { recordingName, rows, cols } = Astro.props;
+---
+
+<asciinema-player  data-recording={recordingName} data-rows={rows} data-cols={cols}>
+    <div class="asciinema" id={`asciinema-player-${recordingName}`}></div>
+</asciinema-player>
+
+<script>
+  class AsciinemaElement extends HTMLElement {
+    connectedCallback() {
+      AsciinemaPlayer.create(
+        `/blog/public/asciinema/${this.dataset.recording}.cast`,
+        document.getElementById(`asciinema-player-${this.dataset.recording}`),
+        {
+          theme: 'tango',
+          rows: this.dataset.rows,
+          cols: this.dataset.cols,
+        }
+      )
+    }
+  }
+  customElements.define('asciinema-player', AsciinemaElement);
+</script>
+
+<style>
+  .asciinema {
+    border: 1px solid var(--color-muted-extra)
+  }
+</style>

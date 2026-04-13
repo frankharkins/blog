@@ -4,6 +4,8 @@ description: "Speed up those tedious tasks that aren't quite worth writing a scr
 pubDate: '22 October 2023'
 ---
 
+import Asciinema from '../../components/Asciinema.astro';
+
 When you hear enthusiasts talk (or type) about Vim, you'll probably come away
 believing that Vim is better because you can do things in "less keystrokes",
 which "saves time" and thus makes you more productive. Needless to say, this
@@ -75,7 +77,8 @@ Here's a clip of me recording the action, then replaying it.
 
 <Asciinema
     recordingName="semi-automate-vim/demo1"
-    size={[18, 86]}
+    rows={18}
+    cols={86}
 />
 
 You could probably automate this action easily through a regex
@@ -104,7 +107,8 @@ need to do it once. This kind of task is Vim's forte.
 
 <Asciinema
     recordingName="semi-automate-vim/demo2"
-    size={[28, 134]}
+    rows={28}
+    cols={134}
 />
 
 In the video, I use another handy feature, the "read" command (`:r!`). This
