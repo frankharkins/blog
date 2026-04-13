@@ -1,141 +1,204 @@
-/*
-  The CSS in this style tag is based off of Bear Blog's default CSS.
-  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
-  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
- */
+@import url('https://fonts.googleapis.com/css2?family=Karla&family=Source+Code+Pro:wght@400;700&display=swap');
 
 :root {
-	--accent: #2337ff;
-	--accent-dark: #000d8a;
-	--black: 15, 18, 25;
-	--gray: 96, 115, 159;
-	--gray-light: 229, 233, 240;
-	--gray-dark: 34, 41, 57;
-	--gray-gradient: rgba(var(--gray-light), 50%), #fff;
-	--box-shadow:
-		0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
-		0 16px 32px rgba(var(--gray), 33%);
-}
-body {
-	font-family: var(--font-atkinson);
-	margin: 0;
-	padding: 0;
-	text-align: left;
-	background: linear-gradient(var(--gray-gradient)) no-repeat;
-	background-size: 100% 600px;
-	word-wrap: break-word;
-	overflow-wrap: break-word;
-	color: rgb(var(--gray-dark));
-	font-size: 20px;
-	line-height: 1.7;
-}
-main {
-	width: 720px;
-	max-width: calc(100% - 2em);
-	margin: auto;
-	padding: 3em 1em;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	margin: 0 0 0.5rem 0;
-	color: rgb(var(--black));
-	line-height: 1.2;
-}
-h1 {
-	font-size: 3.052em;
-}
-h2 {
-	font-size: 2.441em;
-}
-h3 {
-	font-size: 1.953em;
-}
-h4 {
-	font-size: 1.563em;
-}
-h5 {
-	font-size: 1.25em;
-}
-strong,
-b {
-	font-weight: 700;
-}
-a {
-	color: var(--accent);
-}
-a:hover {
-	color: var(--accent);
-}
-p {
-	margin-bottom: 1em;
-}
-.prose p {
-	margin-bottom: 2em;
-}
-textarea {
-	width: 100%;
-	font-size: 16px;
-}
-input {
-	font-size: 16px;
-}
-table {
-	width: 100%;
-}
-img {
-	max-width: 100%;
-	height: auto;
-	border-radius: 8px;
-}
-code {
-	padding: 2px 5px;
-	background-color: rgb(var(--gray-light));
-	border-radius: 2px;
-}
-pre {
-	padding: 1.5em;
-	border-radius: 8px;
-}
-pre > code {
-	all: unset;
-}
-blockquote {
-	border-left: 4px solid var(--accent);
-	padding: 0 0 0 20px;
-	margin: 0;
-	font-size: 1.333em;
-}
-hr {
-	border: none;
-	border-top: 1px solid rgb(var(--gray-light));
-}
-@media (max-width: 720px) {
-	body {
-		font-size: 18px;
-	}
-	main {
-		padding: 1em;
-	}
+    --main-font: "Source Code Pro", "sans-serif";
+
+    --color-white: #ecf2f8;
+    --color-grey-01: #d8dee4;
+    --color-grey-02: #c3c9cf;
+    --color-grey-03: #afb5bb;
+    --color-grey-04: #72777d;
+    --color-grey-05: #363a40;
+    --color-grey-06: #21252b;
+    --color-black: #0d1117;
+    --color-cursor: #58a6ff;
+    --color-blue: #0969da;
+    --color-cyan: #56d4dd;
+
+    --color-title: var(--color-black);
+    --color-bg: var(--color-white);
+    --color-body: var(--color-grey-04);
+    --color-muted: var(--color-grey-02);
+    --color-muted-extra: var(--color-grey-01);
+    --color-link: var(--color-blue);
+    --color-focus: var(--color-blue);
+    --color-cursor: var(--color-blue);
+
+    background-color: var(--color-white);
+    @media (prefers-color-scheme: dark) {
+        background-color: var(--color-black);
+    }
+
+    color: var(--color-body);
+    transition: all 0.1s ease-in-out;
+
+    code span {
+        color: var(--shiki-light);
+    }
+
+    [data-theme="Dark"] {
+        --color-title: var(--color-white);
+        --color-bg: var(--color-black);
+        --color-body: var(--color-grey-03);
+        --color-muted: var(--color-grey-05);
+        --color-muted-extra: var(--color-grey-06);
+        --color-link: var(--color-cyan);
+        --color-focus: var(--color-cyan);
+        --color-cursor: var(--color-cyan);
+
+        code span {
+            color: var(--shiki-dark);
+        }
+    }
+
+    [data-theme="Default"] {
+        @media (prefers-color-scheme: dark) {
+            --color-title: var(--color-white);
+            --color-bg: var(--color-black);
+            --color-body: var(--color-grey-03);
+            --color-muted: var(--color-grey-05);
+            --color-muted-extra: var(--color-grey-06);
+            --color-link: var(--color-cyan);
+            --color-focus: var(--color-cyan);
+            --color-cursor: var(--color-cyan);
+
+            code span {
+                color: var(--shiki-dark);
+            }
+        }
+    }
+
+    font-family: var(--main-font);
+    font-size: 18px;
+    line-height: 20px;
+    main, header {
+        max-width: 32rem;
+        margin: 0 auto;
+        padding: 0 4rem;
+    }
+
+    @media (max-width: 640px) {
+        font-size: 16px;
+        line-height: 18px;
+        main, header {
+            padding: 0 2rem;;
+        }
+    }
+
+    header {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    *:focus {
+      outline: solid var(--color-focus) 1px;
+    }
+
+    h1, h2, h3 {
+      font-family: var(--main-font);
+      color: var(--color-title);
+      font-size: 1.05rem;
+      font-weight: bold;
+      margin-top: 2rem;
+    }
+
+    h2, h3 {
+        font-size: 0.85rem;
+    }
+
+    h3 {
+      font-weight: normal;
+    }
+
+    a {
+      color: var(--color-link);
+      transition: background 0.2s ease;
+    }
+
+    a:hover, a:focus {
+      color: var(--color-bg);
+      background: var(--color-link);
+      text-decoration: none;
+    }
+
+    pre {
+      border: 1px solid var(--color-muted-extra);
+      padding: 1rem;
+      overflow: auto;
+    }
+
+    pre + pre[data-language="plaintext"] {
+      margin-top: -1rem;
+      border-top: none;
+      background: none;
+      line-height: .66rem;
+    }
+
+    pre > code {
+      font-size: .7rem;
+      background-color: unset;
+      border: none;
+    }
+
+    p > code {
+        font-size: 0.75rem;
+        border: 1px solid var(--color-muted-extra);
+        padding: 1px 4px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      padding-left: 1.2rem;
+    }
+
+    ul li:before {
+      content: '- ';
+      margin-left: -1rem;
+    }
+
+    p, ol, ul {
+      font-size: .9rem;
+      font-family: 'Karla', sans-serif;
+      margin: 1rem 0;
+      text-align: justify;
+    }
+
+    p:last-of-type {
+      margin-bottom: 2rem;
+    }
+
+    blockquote {
+      margin-right: 0;
+      margin-left: 0;
+      padding-left: 1rem;
+      border-left: 3px solid var(--color-muted-extra);
+    }
+
+    table {
+      margin: 1rem 0;
+    }
+
+    table, th, td {
+      border: 1px solid;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    th, td {
+      padding: .3rem .5rem;
+      min-width: 4rem;
+    }
 }
 
-.sr-only {
-	border: 0;
-	padding: 0;
-	margin: 0;
-	position: absolute !important;
-	height: 1px;
-	width: 1px;
-	overflow: hidden;
-	/* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
-	clip: rect(1px 1px 1px 1px);
-	/* maybe deprecated but we need to support legacy browsers */
-	clip: rect(1px, 1px, 1px, 1px);
-	/* modern browsers, clip-path works inwards from each corner */
-	clip-path: inset(50%);
-	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
-	white-space: nowrap;
+@keyframes fade-in-anim {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }

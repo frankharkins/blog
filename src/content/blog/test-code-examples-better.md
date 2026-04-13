@@ -36,7 +36,7 @@ contains a code example and some markdown that references that code example.
 > from my_package import function
 > my_function()
 > ```
-> ```output
+> ```output output
 > None
 > ```
 
