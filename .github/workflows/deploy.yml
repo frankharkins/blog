@@ -9,13 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
 
       - name: Install Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v6
         with:
-          node-version: 18
-          cache: npm
+          node-version: 22
 
       - name: Install dependencies
         run: npm install
@@ -25,9 +24,9 @@ jobs:
           npm run build
 
       - name: Upload Artifacts
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v5
         with:
-          path: 'build/'
+          path: 'dist/'
 
   deploy:
     needs: build_site
@@ -44,4 +43,4 @@ jobs:
     steps:
       - name: Deploy
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v5
