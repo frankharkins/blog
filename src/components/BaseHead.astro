@@ -39,6 +39,7 @@ const { title, description, image = FallbackImage } = Astro.props;
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
+<link rel="icon" type="image/svg+xml" href="/blog/favicon.svg" />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
@@ -54,5 +55,5 @@ const { title, description, image = FallbackImage } = Astro.props;
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image.src, Astro.url)} />
 
-<script is:inline src="/blog/public/js/asciinema-player.min.js"></script>
-<link rel="stylesheet" type="text/css" href="/blog/public/css/asciinema-player.css" />
+<script is:inline src="/blog/js/asciinema-player.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/blog/css/asciinema-player.css" />

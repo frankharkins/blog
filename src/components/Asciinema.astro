@@ -10,7 +10,7 @@ const { recordingName, rows, cols } = Astro.props;
   class AsciinemaElement extends HTMLElement {
     connectedCallback() {
       AsciinemaPlayer.create(
-        `/blog/public/asciinema/${this.dataset.recording}.cast`,
+        `/blog/asciinema/${this.dataset.recording}.cast`,
         document.getElementById(`asciinema-player-${this.dataset.recording}`),
         {
           theme: 'tango',
