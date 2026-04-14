@@ -1,4 +1,5 @@
 ---
+import ThemeSwitcher from '../components/ThemeSwitcher.astro';
 const { slug } = Astro.props;
 ---
 
@@ -11,8 +12,13 @@ const { slug } = Astro.props;
 			{ slug && (<>/</> <a href={slug}>{slug}</a>) }
 		</div>
 	</nav>
+	<ThemeSwitcher />
 </header>
 <style>
+    header {
+        display: flex;
+        justify-content: space-between;
+    }
     nav {
         font-size: 0.8rem;
     }

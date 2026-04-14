@@ -1,0 +1,93 @@
+<script>
+    export type Theme = 'Light' | 'Dark' | 'Default';
+
+    const NEXT_THEME: { [t in Theme]: Theme } ={
+      Light: 'Dark',
+      Dark: 'Default',
+      Default: 'Light',
+    };
+
+    function isTheme(theme: string): theme is Theme {
+      return (theme in NEXT_THEME);
+    }
+
+    function parseTheme(theme: string | null): Theme {
+      if (theme && isTheme(theme)) return theme
+      return "Default"
+    }
+
+    function setTheme(theme: Theme) {
+      window.localStorage.setItem('theme', theme);
+      document.body.setAttribute('data-theme', theme);
+      if (theme === "Dark") {
+        document.querySelector(':root')?.setAttribute('style', 'background: var(--color-black)')
+      }
+      if (theme === "Light") {
+        document.querySelector(':root')?.setAttribute('style', 'background: var(--color-white)')
+      }
+      const label = document.querySelector('[data-theme-label]');
+      if (label) {
+        label.innerHTML = theme;
+      }
+    }
+
+    class ThemeSwitcher extends HTMLElement {
+      connectedCallback() {
+        const currentTheme = parseTheme(window.localStorage.getItem('theme'));
+        setTheme(currentTheme);
+        const button = this.querySelector('button');
+        button?.addEventListener('click', () => {
+          const currentTheme = parseTheme(window.localStorage.getItem('theme'));
+          const newTheme = NEXT_THEME[currentTheme];
+          setTheme(newTheme);
+        })
+      }
+    }
+
+    customElements.define('theme-switcher', ThemeSwitcher);
+</script>
+
+<style>
+    theme-switcher {
+        flex-shrink: 0;
+    }
+    button {
+        background: none;
+        border: none;
+        outline-offset: .5rem;
+        cursor: pointer;
+        font-family: var(--font-main);
+        vertical-align: top;
+        padding: 2px 0;
+        margin-left: 1rem;
+    }
+
+    .icon {
+        display: inline;
+        vertical-align: bottom;
+    }
+
+    .label {
+        color: var(--color-body);
+        display: none;
+    }
+
+    button:hover .label {
+        display: inline;
+    }
+</style>
+
+<theme-switcher>
+    <button>
+        <span class="label" data-theme-label></span>
+        <svg class="icon" width="1lh" height="1lh" viewBox="0 0 250 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="125" cy="125" r="125" fill="var(--color-muted)"/>
+          <mask id="mask0_1_2" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="250" height="250" fill="#fff">
+            <circle cx="125" cy="125" r="125"/>
+          </mask>
+          <g mask="url(#mask0_1_2)">
+            <circle cx="115" cy="110" r="120" fill="var(--color-muted-extra)"/>
+          </g>
+        </svg>
+    </button>
+</theme-switcher>
