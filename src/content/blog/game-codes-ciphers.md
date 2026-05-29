@@ -11,8 +11,8 @@ adding a feature, and I'd like to share it.
 When a user creates a game, they're given a "game code". The game creator then
 shares this code with friends so they can join the same game. At the moment,
 I'm generating these codes using Rust's `AtomicUsize`, which is just an
-incrementing integer. This works really well code-wise, but there are a couple
-of problems on the users' end:
+incrementing integer. This works really well inside the server, but there are a
+couple of problems when exposing these to users:
 
 1. It's an unusual user experience for the codes to be numbers, especially low
    ones such as `13`.
@@ -59,8 +59,8 @@ Then we can have another function:
 fn decode(code: String) -> usize
 ```
 
-Then we don't need any locks or hashmaps. The rest of this article will explain
-how to create such a function.
+Which means we don't need any locks or hashmaps. The rest of this article will
+explain how to create such a function.
 
 ## Part 1: IDs to codes
 
@@ -68,6 +68,7 @@ The first part of the puzzle is mapping integers to codes without the
 randomization. This part is easy. Since I want players to be able to share the
 codes verbally, I decided each code should be four characters long and each
 character be from the set (0-9,A-Z), which gives us 36 characters to work with.
+To map IDs to codes, I just encoded them in base 36.
 
 | integer | code   |
 |---------|--------|
@@ -282,7 +283,8 @@ requires no shared mutable state aside from the counter, which means no locks.
 Since the functions are pure, it's very easy to test.
 
 It's also very performant. The following test iterates through _every_ valid
-code and runs in ~2.5s, which means encoding/decoding an ID takes ~1.5μs.
+code and runs in ~0.15s in release mode on my machine. This means each
+iteration takes ~90ns, not much worse than a hashmap lookup.
 
 ```rust
 // Exhaustive check that the bad-words mechanism is working
